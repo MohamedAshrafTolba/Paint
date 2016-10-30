@@ -1,0 +1,96 @@
+#PencilTool {
+  -fx-background-image: url('file:src/resources/pencil24-px.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#BrushTool {
+  -fx-background-image: url('file:src/resources/artistic-brush24-px.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+  
+}
+
+#EraseTool {
+  -fx-background-image: url('file:src/resources/rubber24-px.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+  
+}
+
+#SelectionTool {
+  -fx-background-image: url('file:src/resources/cursor16-px.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+ 
+}
+
+#cutTool {
+  -fx-background-image: url('file:src/resources/scissors.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#FillingTool {
+  -fx-background-image: url('file:src/resources/paint-bucket.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#lineIcon {
+  -fx-background-image : url('file:src/resources/diagonal-line.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#circleIcon {
+  -fx-background-image:  url('file:src/resources/plain-circle.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+  }
+
+#ellipseIcon {
+  -fx-background-image:  url('file:src/resources/ellipse.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#triangleIcon {
+  -fx-background-image:  url('file:src/resources/triangle.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#squareIcon {	
+  -fx-background-image:  url('file:src/resources/square.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#rectangleIcon {
+  -fx-background-image:  url('file:src/resources/rectangle.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#newCanvasDone {
+  -fx-background-image:  url('file:src/resources/check-mark.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#paneFXid {
+	-fx-background-color: white;
+	-fx-border-width: 0.0 1.0 1.0 0.0;
+	-fx-border-color: gray;
+	-fx-padding: 0.0 10.0 10.0 0.0
+}
+
+#mainPaneid {
+	-fx-background-color: transparent ;
+}
+
+#anchorPane {
+	-fx-background-color: transparent ;
+}
+
