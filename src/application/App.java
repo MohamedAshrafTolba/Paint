@@ -19,8 +19,8 @@ public class App extends Application {
         primaryStage.setTitle("Paint");
         primaryStage.getIcons().add(new Image("file:src/resources/paint-palette-black.png"));
         primaryStage.setScene(new Scene(root));
-        primaryStage.setMinWidth(800);
-        primaryStage.setMinHeight(500);
+        primaryStage.setMinWidth(1000);
+        primaryStage.setMinHeight(700);
         primaryStage.show();
     }
 

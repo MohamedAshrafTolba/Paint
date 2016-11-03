@@ -37,6 +37,18 @@
   -fx-background-repeat: stretch;
 }
 
+#UndoTool {
+  -fx-background-image: url('file:src/resources/undo.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#RedoTool {
+  -fx-background-image: url('file:src/resources/redo.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
 #lineIcon {
   -fx-background-image : url('file:src/resources/diagonal-line.png');
   -fx-background-position: center;
@@ -69,6 +81,24 @@
 
 #rectangleIcon {
   -fx-background-image:  url('file:src/resources/rectangle.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#deleteShapes {
+  -fx-background-image:  url('file:src/resources/rubbish-bin.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#dragShapes {
+  -fx-background-image:  url('file:src/resources/move.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+}
+
+#resizeShapes {
+  -fx-background-image:  url('file:src/resources/resize.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }

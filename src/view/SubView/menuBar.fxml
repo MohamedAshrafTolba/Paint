@@ -7,14 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="#mainPaneId" maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="700.0" minWidth="910.0" prefHeight="700.0" prefWidth="910.0"
-	stylesheets="@../styleSheetPaint.css" xmlns="http://javafx.com/javafx/8.0.60"
-	xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubController.MenuBarCtrl">
+<AnchorPane id="#mainPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../styleSheetPaint.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubController.MenuBarCtrl">
 	<children>
-		<MenuBar layoutX="192.0" layoutY="119.0"
-			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-			AnchorPane.topAnchor="0.0">
+		<MenuBar layoutX="192.0" layoutY="119.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<menus>
 				<Menu mnemonicParsing="false" text="File">
 					<items>
@@ -24,7 +19,7 @@
 									<items>
 										<MenuItem mnemonicParsing="false" text="Width - pixels">
 											<graphic>
-												<TextField fx:id="canvasWidthId"/>
+												<TextField fx:id="canvasWidthId" />
 											</graphic>
 										</MenuItem>
 										<MenuItem mnemonicParsing="false" text="Height - pixels">
@@ -34,9 +29,7 @@
 										</MenuItem>
 										<MenuItem mnemonicParsing="false">
 											<graphic>
-												<Button id="newCanvasDone" maxHeight="33.0" maxWidth="40.0"
-													minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-													prefHeight="33.0" prefWidth="40.0" onAction="#newCanvasSize"/>
+												<Button id="newCanvasDone" maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false" onAction="#newCanvasSize" prefHeight="33.0" prefWidth="40.0" />
 											</graphic>
 										</MenuItem>
 									</items>

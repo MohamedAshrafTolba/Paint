@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="#mainPaneId" maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="700.0" minWidth="910.0" prefHeight="700.0" prefWidth="910.0"
+	minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0"
 	stylesheets="@../styleSheetPaint.css" xmlns="http://javafx.com/javafx/8.0.60"
 	xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubController.ToolBarCtrl">
 	<children>
@@ -15,45 +15,68 @@
 			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
 			AnchorPane.topAnchor="0.0">
 			<items>
-				<Button id="SelectionTool" maxHeight="33.0" maxWidth="40.0" minHeight="33.0"
-					minWidth="40.0" mnemonicParsing="false" prefHeight="33.0"
+				<Button id="PencilTool" maxHeight="33.0" maxWidth="40.0"
+					minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
+					prefHeight="33.0" prefWidth="40.0" onMouseClicked="#pencilSketching" />
+				<Button id="BrushTool" layoutX="10.0" layoutY="10.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#burshSketching" />
+				<Button id="FillTool" layoutX="55.0" layoutY="10.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#fillingTool" />
+				<Button id="EraseTool" layoutX="100.0" layoutY="10.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#eraserTool" />
+				<Button id="dragShapes" layoutX="145.0" layoutY="10.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#draggingTool" />
+				<Button id="resizeShapes" layoutX="190.0" layoutY="10.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#resizingTool" />
+				<Button id="UndoTool" layoutX="235.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#undoTool" />
+				<Button id="RedoTool" layoutX="280.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#redoTool" />
+				<Button id="deleteShapes" layoutX="325.0" layoutY="14.0" maxHeight="33.0"
+					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
+					prefHeight="33.0" prefWidth="40.0" onMouseClicked="#deletingTool"/>
+				<ColorPicker fx:id="colorPickerFXid" />
+				<Slider fx:id="sliderFXid" blockIncrement="5.0"
+					majorTickUnit="5.0" max="30.0" min="5.0" minorTickCount="5"
+					showTickLabels="true" />
+				<Button id="lineIcon" layoutX="235.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" onMouseClicked="#drawLine" prefHeight="33.0"
 					prefWidth="40.0" />
-				<Button id="PencilTool" layoutX="10.0" layoutY="10.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" onMouseClicked="#pencilSketching"/>
-				<Button id="BrushTool" layoutX="55.0" layoutY="10.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" onMouseClicked="#burshSketching"/>
-				<Button id="FillingTool" layoutX="100.0" layoutY="10.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" onMouseClicked="#fillingbackground"/>
-				<Button id="EraseTool" layoutX="145.0" layoutY="10.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" onMouseClicked="#eraserTool"/>
-				<Button id="TextTool" layoutX="190.0" layoutY="10.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" />
-				<ColorPicker fx:id="colorPickerFXid"/>
-				<Slider fx:id="sliderFXid" blockIncrement="5.0" majorTickUnit="5.0" max="30.0"
-					min="5.0" minorTickCount="5" showTickLabels="true" />
-				<Button layoutX="235.0" layoutY="14.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" />
-				<Button layoutX="235.0" layoutY="14.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" />
-				<Button layoutX="235.0" layoutY="14.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" />
-				<Button layoutX="235.0" layoutY="14.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" />
-				<Button layoutX="235.0" layoutY="14.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" />
-				<Button layoutX="235.0" layoutY="14.0" maxHeight="33.0"
-					maxWidth="40.0" minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-					prefHeight="33.0" prefWidth="40.0" />
+				<Button id="rectangleIcon" layoutX="235.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" onMouseClicked="#drawRectangle" prefHeight="33.0"
+					prefWidth="40.0" />
+				<Button id="squareIcon" layoutX="235.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" onMouseClicked="#drawSquare" prefHeight="33.0"
+					prefWidth="40.0" />
+				<Button id="triangleIcon" layoutX="235.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
+					onMouseClicked="#drawTriangle" />
+				<Button id="ellipseIcon" layoutX="235.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" onMouseClicked="#drawEllipse" prefHeight="33.0"
+					prefWidth="40.0" />
+				<Button id="circleIcon" layoutX="235.0" layoutY="14.0"
+					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
+					mnemonicParsing="false" onMouseClicked="#drawCircle" prefHeight="33.0"
+					prefWidth="40.0" />
 			</items>
 		</ToolBar>
 	</children>
