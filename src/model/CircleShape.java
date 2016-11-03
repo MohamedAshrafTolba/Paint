@@ -35,7 +35,7 @@ public class CircleShape extends EllipseShape {
 	    public void handle(MouseEvent mouseEvent) {
 
 		if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
-		    mouseEvent.consume();
+		    
 		    ellipse.radiusXProperty().bind(rectX.subtract(rectinitX));
 		    ellipse.radiusYProperty().bind(rectX.subtract(rectinitX));
 		    pane.getChildren().add(ellipse);
@@ -74,7 +74,7 @@ public class CircleShape extends EllipseShape {
 			rectinitX.set(intx);
 		    }
 		} else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
-		    mouseEvent.consume();
+		   
 		    // Clone the rectangle
 		    Ellipse e = getNewEllipse();
 		    e.setStroke(pickColor.getValue());

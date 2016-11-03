@@ -1,9 +1,14 @@
 package controller;
 
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
+
 import controller.SubController.MenuBarCtrl;
 import controller.SubController.ToolBarCtrl;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ScrollPane;
@@ -34,6 +39,7 @@ public class MainController {
     private static final int PENCIL_TOOL = 1;
     private static final int BRUSH_TOOL = 2;
     private static final int ERASER_TOOL = 3;
+    private static final int MIN_CHILD = 1;
 
     static int state;
     private static boolean changeOccur;
@@ -69,6 +75,18 @@ public class MainController {
 	if (graphContextIn != null) {
 	    graphContextIn.clearRect(0, 0, width, height);
 	}
+	
+	if (paneFXid.getChildren().size() > MIN_CHILD) {
+	    List<Node> removeList = new LinkedList<Node>();
+	    for (Node child : paneFXid.getChildren()) {
+		if (!(child instanceof Canvas)) {
+		    removeList.add(child);
+		}
+	    }
+	    paneFXid.getChildren().removeAll(removeList);
+	}
+	
+	toolBarController.clearData();
 	// //LOOK HERE PLEASE
 	// if (!(paneFXid.getChildren().isEmpty())) {
 	// for (Node component : paneFXid.getChildren()) {
@@ -214,6 +232,46 @@ public class MainController {
 
     public void setState(int stateInp) {
 	state = stateInp;
+    }
+    
+    public void getFileName(File file) {
+	toolBarController.accessFileLoader(file);
+    }
+    
+    public void adjustSheetAfterLoad(Pane pane , double width ,double height) {
+	
+//	List<Node> remLPane = new LinkedList<Node>();
+//	
+//	for (Node child : pane.getChildren()) {
+//	    if (!(child instanceof Canvas)) {
+//		remLPane.add(child);
+//	    }
+//	}
+//	pane.getChildren().removeAll(remLPane);
+//	
+//	List<Node> remLPaneFXid = new LinkedList<Node>();
+//	
+//	for (Node child : paneFXid.getChildren()) {
+//	    if (!(child instanceof Canvas)) {
+//		remLPaneFXid.add(child);
+//	    }
+//	}
+//	
+//	paneFXid.getChildren().removeAll(remLPaneFXid);
+//	
+//	for (Node child : remLPaneFXid) {
+//	    paneFXid
+//	}
+//	
+//	this.paneFXid = pane;
+	this.paneFXid.setMaxWidth(width+1.0);
+	this.paneFXid.setMinWidth(width+1.0);
+	this.paneFXid.setPrefWidth(width+1.0);
+	this.paneFXid.setMaxHeight(height+1.0);
+	this.paneFXid.setMinHeight(height+1.0);
+	this.paneFXid.setPrefHeight(height+1.0);
+	this.canvasFXid.setWidth(width);
+	this.canvasFXid.setHeight(height);
     }
 
 }

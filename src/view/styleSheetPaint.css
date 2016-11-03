@@ -31,7 +31,7 @@
   -fx-background-repeat: stretch;
 }
 
-#FillingTool {
+#FillTool {
   -fx-background-image: url('file:src/resources/paint-bucket.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;

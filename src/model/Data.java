@@ -19,12 +19,9 @@ public class Data {
 
     private Stack<Set<Node>> primaryStack = new Stack<Set<Node>>();
     private Stack<Set<Node>> secondaryStack = new Stack<Set<Node>>();
-    private static final int MIN_SIZE = 0;
 
     private void pushToPrimaryStack(Pane pane) {
 	Set<Node> oList = new HashSet<Node>();
-
-	System.out.println("EVERY THING IN PANE BEFORE PROCESSING NODES:" + pane.getChildren());
 	for (Node component : pane.getChildren()) {
 	    if (!(component instanceof Canvas)) {
 		Object intermediate = getClone(component);
@@ -33,68 +30,51 @@ public class Data {
 	    }
 	}
 
-	// System.out.println("HELLO FROM PUSH TO PRIMARY STACK EVERY THINGIN
-	// LIST :" + oList);
-
 	primaryStack.push(oList);
-	// System.out.println(primaryStack.peek());
 
     }
 
     private void undoInvoked(Pane pane) {
-	if (primaryStack.size() != MIN_SIZE) {
-	    // // System.out.println("HELLO UNDO");
-	    // // System.out.println(primaryStack.size());
-	    // System.out.println("PRIMARY STACK CONTENTS");
-	    // System.out.println(primaryStack);
-	    List<Node> nList = new LinkedList<Node>();
-	    for (Node component : pane.getChildren()) {
-		if (!(component instanceof Canvas)) {
-		    Node intermediate = component;
-		    nList.add(intermediate);
-		}
+	List<Node> nList = new LinkedList<Node>();
+	for (Node component : pane.getChildren()) {
+	    if (!(component instanceof Canvas)) {
+		Node intermediate = component;
+		nList.add(intermediate);
 	    }
-
-	    pane.getChildren().removeAll(nList);
-
-//	    System.out.println("EVERYTHING IN PANE ON INVOCATION OF UNDO :" + pane.getChildren());
-
-	    secondaryStack.push(primaryStack.peek());
-	    primaryStack.pop();
-
-	    if (!primaryStack.isEmpty()) {
-		for (Node componentTwo : primaryStack.peek()) {
-		    Object intermediate = getClone(componentTwo);
-		    pane.getChildren().add((Node) intermediate);
-		}
-	    }
-
 	}
+
+	pane.getChildren().removeAll(nList);
+
+	secondaryStack.push(primaryStack.peek());
+	primaryStack.pop();
+
+	if (!primaryStack.isEmpty()) {
+	    for (Node componentTwo : primaryStack.peek()) {
+		Object intermediate = getClone(componentTwo);
+		pane.getChildren().add((Node) intermediate);
+	    }
+	}
+
     }
 
     private void redoInvoked(Pane pane) {
-	if (secondaryStack.size() != MIN_SIZE) {
-
-	   System.out.println("Elements in pane:" + pane.getChildren());
-	    List<Node> nList = new LinkedList<Node>();
-	    for (Node component : pane.getChildren()) {
-		if (!(component instanceof Canvas)) {
-		    Node intermediate = component;
-		    nList.add(intermediate);
-		}
+	System.out.println("Elements in pane:" + pane.getChildren());
+	List<Node> nList = new LinkedList<Node>();
+	for (Node component : pane.getChildren()) {
+	    if (!(component instanceof Canvas)) {
+		Node intermediate = component;
+		nList.add(intermediate);
 	    }
-	    
-	    pane.getChildren().removeAll(nList);
-	    
-	    System.out.println("All elements to be removed from pane :" + nList);
-	    System.out.println("Elements in sec. stack peek :" + secondaryStack.peek());
-	    primaryStack.push(secondaryStack.peek());
-	    secondaryStack.pop();
-	    if (!primaryStack.isEmpty()) {
-		for (Node componentTwo : primaryStack.peek()) {
-		    Object intermediate = getClone(componentTwo);
-		    pane.getChildren().add((Node) intermediate);
-		}
+	}
+
+	pane.getChildren().removeAll(nList);
+
+	primaryStack.push(secondaryStack.peek());
+	secondaryStack.pop();
+	if (!primaryStack.isEmpty()) {
+	    for (Node componentTwo : primaryStack.peek()) {
+		Object intermediate = getClone(componentTwo);
+		pane.getChildren().add((Node) intermediate);
 	    }
 	}
     }
@@ -104,7 +84,6 @@ public class Data {
     }
 
     public Object getClone(Object node) {
-
 	if (node instanceof Line) {
 	    Line newLine = new Line();
 	    newLine.setStartX(((Line) node).getStartX());
@@ -163,6 +142,14 @@ public class Data {
 	clearSecondaryStack();
     }
 
+    public int getPrimaryStackSize() {
+	return primaryStack.size();
+    }
+
+    public int getSecondaryStackSize() {
+	return secondaryStack.size();
+    }
+
     public void invokeUndoProcess(Pane pane) {
 	undoInvoked(pane);
     }
@@ -170,5 +157,10 @@ public class Data {
     public void invokeRedoProcess(Pane pane) {
 	redoInvoked(pane);
     }
-
+    
+    public void clearStacks() {
+	primaryStack.clear();
+	secondaryStack.clear();
+    }
+ 
 }

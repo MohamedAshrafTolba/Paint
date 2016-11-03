@@ -1,5 +1,10 @@
 package controller.SubController;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
+
 import controller.MainController;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -31,7 +36,7 @@ public class ToolBarCtrl {
     private static final int LINE_DRAW = 8;
     private static final int TRIANGLE_DRAW = 9;
     private static final int DRAG_MODE = 10;
-
+    private static final int MIN_SIZE = 1;
     private static boolean firstTimeBuffer;
     private MainController mainCtrl;
 
@@ -96,6 +101,7 @@ public class ToolBarCtrl {
 	ellipse.dataInitialize(history);
 	System.out.println("ELLIPSE");
 	paneInp = mainCtrl.passPane();
+	System.out.println("HERE");
 	mainCtrl.setState(ELLIPSE_DRAW);
 	ellipse.drawShape(paneInp, colorPickerFXid, sliderFXid);
     }
@@ -221,16 +227,19 @@ public class ToolBarCtrl {
     @FXML
     private void undoTool() {
 
-	paneInp = mainCtrl.passPane();
-	history.invokeUndoProcess(paneInp);
-
+	if (history.getPrimaryStackSize() >= MIN_SIZE) {
+	    paneInp = mainCtrl.passPane();
+	    history.invokeUndoProcess(paneInp);
+	}
     }
 
     @FXML
     private void redoTool() {
 
-	paneInp = mainCtrl.passPane();
-	history.invokeRedoProcess(paneInp);
+	if (history.getSecondaryStackSize() >= MIN_SIZE) {
+	    paneInp = mainCtrl.passPane();
+	    history.invokeRedoProcess(paneInp);
+	}
 
     }
 
@@ -327,6 +336,32 @@ public class ToolBarCtrl {
 	}
     }
 
+    private void shapeClassFileLoader(File file) {
+	if (file != null) {
+
+	    try {
+		String classFile = file.getName();
+		String className = "";
+		if (classFile.endsWith(".class")) {
+		    className = classFile.replaceAll(".class", "");
+		}
+		URLClassLoader urlClassLoader = URLClassLoader.newInstance(new URL[] { file.toURI().toURL() });
+		System.out.println("I'm here");
+
+		Class<?> shapeImportedClass = urlClassLoader.loadClass("Paint2.model." + className);
+		Class.forName(shapeImportedClass.getName());
+		System.out.println(shapeImportedClass.getName());
+	    } catch (ClassNotFoundException | IllegalArgumentException | SecurityException | IOException e) {
+		e.printStackTrace();
+
+	    }
+	}
+    }
+
+    public void accessFileLoader(File file) {
+	shapeClassFileLoader(file);
+    }
+
     public void setSliderValue(double lineWidth) {
 	sliderFXid.setValue(lineWidth);
     }
@@ -341,6 +376,10 @@ public class ToolBarCtrl {
 
     public Color getColorPickerValue() {
 	return colorPickerFXid.getValue();
+    }
+    
+    public void clearData() {
+	history.clearStacks();
     }
 
 }

@@ -29,9 +29,7 @@ public class EllipseShape extends Shapes {
 	SimpleDoubleProperty rectY = new SimpleDoubleProperty();
 
 	Ellipse ellipse = getNewEllipse();
-	ellipse.radiusXProperty().bind(rectX.subtract(rectinitX));
-	ellipse.radiusYProperty().bind(rectY.subtract(rectinitY));
-	pane.getChildren().add(ellipse);
+	
 
 	EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
 	    double intx, x, dx, inty, y, dy;

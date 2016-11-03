@@ -99,10 +99,12 @@ public abstract class Shapes {
 		public void handle(MouseEvent mouseEvent) {
 		    if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			pane.getChildren().remove(component);
+			dataPath.shapeDrawn(pane);
 		    }
 		}
 	    };
 	    component.setOnMousePressed(mouseHandler);
+
 	}
 
     }
