@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
-import controller.SubController.MenuBarCtrl;
-import controller.SubController.ToolBarCtrl;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -30,9 +28,9 @@ public class MainController {
     @FXML
     private AnchorPane anchorPaneFXid;
     @FXML
-    ToolBarCtrl toolBarController;
+	ToolBarController toolBarController;
     @FXML
-    MenuBarCtrl menuBarController;
+	MenuBarController menuBarController;
 
     
 
@@ -66,12 +64,7 @@ public class MainController {
 
 	canvasFXid.setHeight(height);
 	canvasFXid.setWidth(width);
-	// System.out.println("Canvas is a child of pane:" +
-	// paneFXid.getChildren().contains(canvasFXid));
-	// System.out.println(
-	// "Canvas and the pane are children of the anchor pane:" +
-	// anchorPaneFXid.getChildren().contains(paneFXid)
-	// + " " + anchorPaneFXid.getChildren().contains(canvasFXid));
+
 	if (graphContextIn != null) {
 	    graphContextIn.clearRect(0, 0, width, height);
 	}
@@ -87,30 +80,6 @@ public class MainController {
 	}
 	
 	toolBarController.clearData();
-	// //LOOK HERE PLEASE
-	// if (!(paneFXid.getChildren().isEmpty())) {
-	// for (Node component : paneFXid.getChildren()) {
-	// if (!(component instanceof Canvas)) {
-	// int erasingObj = paneFXid.getChildren().indexOf(component);
-	// paneFXid.getChildren().remove(erasingObj);
-	// }
-	// }
-	//
-	// if (state == BRUSH_TOOL || state == PENCIL_TOOL || state ==
-	// ERASER_TOOL) {
-	// canvasFXid.toFront();
-	// paneFXid.toBack();
-	// } else {
-	// canvasFXid.toBack();
-	// paneFXid.toFront();
-	// }
-	//
-	// }
-	/// LOOK HERE PLEASE
-	// scrollPaneFXid.setPrefViewportWidth(paneFXid.getWidth() + 10.0);
-	// scrollPaneFXid.setPrefViewportHeight(paneFXid.getHeight() + 10.0);
-	// scrollPaneFXid.setMinHeight(paneFXid.getHeight() + 10.0);
-	// scrollPaneFXid.setMinWidth(paneFXid.getWidth() + 10.0);
 	scrollPaneFXid.setContent(paneFXid);
 
     }
@@ -154,11 +123,6 @@ public class MainController {
 	    canvasFXid.setOnMouseDragged(new EventHandler<MouseEvent>() {
 		@Override
 		public void handle(MouseEvent event) {
-		    /// The brush tool can be developed later on to look more
-		    /// different than the normal pencil
-		    /// noting that the main difference between both occur on
-		    /// large size where rendering process appear to be more
-		    /// clear in brush mode
 		    if (state == BRUSH_TOOL || state == ERASER_TOOL || state == PENCIL_TOOL) {
 			event.consume();
 
@@ -203,20 +167,6 @@ public class MainController {
 	startFreeSketching(flag);
 
     }
-
-    /// LOOK AT THE FILLING
-
-    // private void fillingTool() {
-    // graphContextIn.setFill(toolBarController.getColorPickerValue());
-    // graphContextIn.fillRect(0.0, 0.0, canvasFXid.getWidth(),
-    // canvasFXid.getHeight());
-    // paneFXid.
-    // }
-
-    // public void invokeFillingTool() {
-    // graphContextIn = canvasFXid.getGraphicsContext2D();
-    // fillingTool();
-    // }
 
     public Pane passPane() {
 	return this.paneFXid;

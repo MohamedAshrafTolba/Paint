@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="#mainPaneId" maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="700.0" minWidth="910.0" prefHeight="700.0" prefWidth="910.0"
-	stylesheets="@../styleSheetPaint.css" xmlns="http://javafx.com/javafx/8.0.60"
-	xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubController.MenuBarCtrl">
+			minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0"
+			stylesheets="@styleSheetPaint.css" xmlns="http://javafx.com/javafx/8.0.60"
+			xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuBarController">
 	<children>
 		<MenuBar layoutX="192.0" layoutY="119.0"
 			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
@@ -24,33 +24,33 @@
 									<items>
 										<MenuItem mnemonicParsing="false" text="Width - pixels">
 											<graphic>
-												<TextField fx:id="canvasWidthId"/>
+												<TextField fx:id="canvasWidth" />
 											</graphic>
 										</MenuItem>
 										<MenuItem mnemonicParsing="false" text="Height - pixels">
 											<graphic>
-												<TextField fx:id="canvasHeightId" />
+												<TextField fx:id="canvasHeight" />
 											</graphic>
 										</MenuItem>
 										<MenuItem mnemonicParsing="false">
 											<graphic>
 												<Button id="newCanvasDone" maxHeight="33.0" maxWidth="40.0"
 													minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
-													prefHeight="33.0" prefWidth="40.0" onAction="#newCanvasSize"/>
+													onAction="#newCanvasSize" prefHeight="33.0" prefWidth="40.0" />
 											</graphic>
 										</MenuItem>
 									</items>
 								</Menu>
 							</items>
 						</Menu>
-						<MenuItem mnemonicParsing="false" text="Open" />
-						<MenuItem mnemonicParsing="false" text="Save " />
-						<MenuItem mnemonicParsing="false" text="Close" />
+						<MenuItem mnemonicParsing="false" text="Open" onAction="#openFile"/>
+						<MenuItem mnemonicParsing="false" text="Save" onAction="#saveFile" />
+						<MenuItem mnemonicParsing="false" text="Close" onAction="#closeApplication"/>
 					</items>
 				</Menu>
-				<Menu mnemonicParsing="false" text="Insert">
+				<Menu mnemonicParsing="false" text="Add">
 					<items>
-						<MenuItem mnemonicParsing="false" text="Photo" />
+						<MenuItem mnemonicParsing="false" text="Shape"/>
 					</items>
 				</Menu>
 				<Menu mnemonicParsing="false" text="Help">

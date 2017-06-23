@@ -1,4 +1,4 @@
-package controller.SubController;
+package controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,15 +17,10 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-import model.CircleShape;
-import model.Data;
-import model.EllipseShape;
-import model.LineSegment;
-import model.RectangleShape;
-import model.SquareShape;
-import model.TriangleShape;
+import model.*;
 
-public class ToolBarCtrl {
+public class ToolBarController {
+
     private static final int PENCIL_TOOL = 1;
     private static final int BRUSH_TOOL = 2;
     private static final int ERASER_TOOL = 3;
@@ -48,7 +43,7 @@ public class ToolBarCtrl {
     private Pane paneInp;
     private Canvas canvasInp;
 
-    Data history = new Data();
+    OperationHistory history = new OperationHistory();
 
     public void instantiate(MainController mainController) {
 	mainCtrl = mainController;

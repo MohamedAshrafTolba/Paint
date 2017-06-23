@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="#mainPaneId" maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0"
-	stylesheets="@../styleSheetPaint.css" xmlns="http://javafx.com/javafx/8.0.60"
-	xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubController.ToolBarCtrl">
+			minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0"
+			stylesheets="@styleSheetPaint.css" xmlns="http://javafx.com/javafx/8.0.60"
+			xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ToolBarController">
 	<children>
 		<ToolBar prefHeight="40.0" prefWidth="200.0"
 			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"

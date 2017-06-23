@@ -18,7 +18,7 @@ public abstract class Shapes {
     private double xCoordinate;
     private double yCoordinate;
 
-    Data dataPath;
+    OperationHistory dataPath;
 
     public abstract void drawShape(Pane pane, ColorPicker pickColor, Slider lineWidth);
 
@@ -161,7 +161,7 @@ public abstract class Shapes {
 	pane.setOnMouseReleased(mouseHandler);
     }
 
-    public void dataInitialize(Data cloneData) {
+    public void dataInitialize(OperationHistory cloneData) {
 	dataPath = cloneData;
     }
 
