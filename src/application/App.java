@@ -17,7 +17,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/view/designPaint.fxml"));
         primaryStage.setTitle("Paint");
-        primaryStage.getIcons().add(new Image("file:src/resources/paint-palette-black.png"));
+        primaryStage.getIcons().add(new Image("file:resources/painter-palette.png"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setMinWidth(1000);
         primaryStage.setMinHeight(700);

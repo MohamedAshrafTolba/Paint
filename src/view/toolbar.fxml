@@ -15,18 +15,18 @@
 			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
 			AnchorPane.topAnchor="0.0">
 			<items>
-				<Button id="PencilTool" maxHeight="33.0" maxWidth="40.0"
+				<Button id="pencilTool" maxHeight="33.0" maxWidth="40.0"
 					minHeight="33.0" minWidth="40.0" mnemonicParsing="false"
 					prefHeight="33.0" prefWidth="40.0" onMouseClicked="#pencilSketching" />
-				<Button id="BrushTool" layoutX="10.0" layoutY="10.0"
+				<Button id="brushTool" layoutX="10.0" layoutY="10.0"
 					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
 					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
 					onMouseClicked="#brushSketching" />
-				<Button id="FillTool" layoutX="55.0" layoutY="10.0"
+				<Button id="fillTool" layoutX="55.0" layoutY="10.0"
 					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
 					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
 					onMouseClicked="#fillingTool" />
-				<Button id="EraseTool" layoutX="100.0" layoutY="10.0"
+				<Button id="eraseTool" layoutX="100.0" layoutY="10.0"
 					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
 					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
 					onMouseClicked="#eraserTool" />
@@ -38,11 +38,11 @@
 					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
 					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
 					onMouseClicked="#resizingTool" />
-				<Button id="UndoTool" layoutX="235.0" layoutY="14.0"
+				<Button id="undoTool" layoutX="235.0" layoutY="14.0"
 					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
 					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
 					onMouseClicked="#undoTool" />
-				<Button id="RedoTool" layoutX="280.0" layoutY="14.0"
+				<Button id="redoTool" layoutX="280.0" layoutY="14.0"
 					maxHeight="33.0" maxWidth="40.0" minHeight="33.0" minWidth="40.0"
 					mnemonicParsing="false" prefHeight="33.0" prefWidth="40.0"
 					onMouseClicked="#redoTool" />

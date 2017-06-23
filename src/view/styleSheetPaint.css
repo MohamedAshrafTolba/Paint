@@ -1,122 +1,122 @@
-#PencilTool {
-  -fx-background-image: url('file:src/resources/pencil24-px.png');
+#pencilTool {
+  -fx-background-image: url('file:resources/pencil24-px.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
-#BrushTool {
-  -fx-background-image: url('file:src/resources/artistic-brush24-px.png');
-  -fx-background-position: center;
-  -fx-background-repeat: stretch;
-  
-}
-
-#EraseTool {
-  -fx-background-image: url('file:src/resources/rubber24-px.png');
+#brushTool {
+  -fx-background-image: url('file:resources/artistic-brush24-px.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
   
 }
 
-#SelectionTool {
-  -fx-background-image: url('file:src/resources/cursor16-px.png');
+#eraseTool {
+  -fx-background-image: url('file:resources/rubber24-px.png');
+  -fx-background-position: center;
+  -fx-background-repeat: stretch;
+  
+}
+
+#selectionTool {
+  -fx-background-image: url('file:resources/cursor16-px.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
  
 }
 
 #cutTool {
-  -fx-background-image: url('file:src/resources/scissors.png');
+  -fx-background-image: url('file:resources/scissors.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
-#FillTool {
-  -fx-background-image: url('file:src/resources/paint-bucket.png');
+#fillTool {
+  -fx-background-image: url('file:resources/paint-bucket.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
-#UndoTool {
-  -fx-background-image: url('file:src/resources/undo.png');
+#undoTool {
+  -fx-background-image: url('file:resources/undo.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
-#RedoTool {
-  -fx-background-image: url('file:src/resources/redo.png');
+#redoTool {
+  -fx-background-image: url('file:resources/redo.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #lineIcon {
-  -fx-background-image : url('file:src/resources/diagonal-line.png');
+  -fx-background-image : url('file:resources/diagonal-line.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #circleIcon {
-  -fx-background-image:  url('file:src/resources/plain-circle.png');
+  -fx-background-image:  url('file:resources/plain-circle.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
   }
 
 #ellipseIcon {
-  -fx-background-image:  url('file:src/resources/ellipse.png');
+  -fx-background-image:  url('file:resources/ellipse.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #triangleIcon {
-  -fx-background-image:  url('file:src/resources/triangle.png');
+  -fx-background-image:  url('file:resources/triangle.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #squareIcon {	
-  -fx-background-image:  url('file:src/resources/square.png');
+  -fx-background-image:  url('file:resources/square.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #rectangleIcon {
-  -fx-background-image:  url('file:src/resources/rectangle.png');
+  -fx-background-image:  url('file:resources/rectangle.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #deleteShapes {
-  -fx-background-image:  url('file:src/resources/rubbish-bin.png');
+  -fx-background-image:  url('file:resources/rubbish-bin.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #dragShapes {
-  -fx-background-image:  url('file:src/resources/move.png');
+  -fx-background-image:  url('file:resources/move.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #resizeShapes {
-  -fx-background-image:  url('file:src/resources/resize.png');
+  -fx-background-image:  url('file:resources/resize.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
 #newCanvasDone {
-  -fx-background-image:  url('file:src/resources/check-mark.png');
+  -fx-background-image:  url('file:resources/check-mark.png');
   -fx-background-position: center;
   -fx-background-repeat: stretch;
 }
 
-#paneFXid {
+#pane {
 	-fx-background-color: white;
 	-fx-border-width: 0.0 1.0 1.0 0.0;
 	-fx-border-color: gray;
 	-fx-padding: 0.0 10.0 10.0 0.0
 }
 
-#mainPaneid {
+#mainPane {
 	-fx-background-color: transparent ;
 }
 

@@ -137,7 +137,6 @@ public class MenuBarController {
 			}
 		}
 		pane.getChildren().removeAll(removeChildrenList);
-
 		for (int i = 2; i < paneData.size(); i++) {
 			String node = paneData.get(i);
 			data.clear();
@@ -146,10 +145,8 @@ public class MenuBarController {
 				double value = Double.parseDouble(matcher.group());
 				data.add(value);
 			}
-
 			String strokeColor = "";
 			String fillColor = "";
-
 			if (node.contains("stroke=")) {
 				int startStrokeColor = node.indexOf("stroke=") + 7;
 				int endStrokeColor = startStrokeColor + 10;
@@ -198,8 +195,9 @@ public class MenuBarController {
 		this.canvas.setWidth(paneWidth);
 		this.canvas.setHeight(paneHeight);
 	}
-
-	void instantiate(MainController mainController) {
+	void initialize(MainController mainController) {
 		this.mainController = mainController;
+		this.pane = mainController.getPane();
+		this.canvas = mainController.getCanvas();
 	}
 }

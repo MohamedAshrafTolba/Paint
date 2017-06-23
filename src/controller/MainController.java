@@ -1,18 +1,18 @@
 package controller;
 
-import java.util.LinkedList;
-import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.shape.StrokeLineJoin;
 import model.enums;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import static model.enums.State.*;
 
@@ -40,27 +40,22 @@ public class MainController {
 
     @FXML
     public void initialize() {
-		toolBarController.instantiate(this);
-		menuBarController.instantiate(this);
+		toolBarController.initialize(this);
+		menuBarController.initialize(this);
     }
 
     void setCanvasDimensions(double width, double height) {
 		pane.setMinWidth(width + 1.0);
 		pane.setMinHeight(height + 1.0);
-
 		pane.setMaxWidth(width + 1.0);
 		pane.setMaxHeight(height + 1.0);
-
 		pane.setPrefWidth(width + 1.0);
 		pane.setPrefHeight(height + 1.0);
-
-		canvas.setHeight(height);
 		canvas.setWidth(width);
-
+		canvas.setHeight(height);
 		if (graphicsContext != null) {
 			graphicsContext.clearRect(0, 0, width, height);
 		}
-
 		if (pane.getChildren().size() > MIN_CHILD) {
 			List<Node> removeList = new LinkedList<>();
 			for (Node child : pane.getChildren()) {
