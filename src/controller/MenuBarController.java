@@ -16,7 +16,6 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import model.Data;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -37,13 +36,15 @@ public class MenuBarController {
 
 	private Pane pane;
 
+	private Canvas canvas;
+
 	private MainController mainController;
 
 	@FXML
 	private void newCanvasSize() {
-		double width = Double.parseDouble(canvasWidth.getText());
-		double height = Double.parseDouble(canvasHeight.getText());
-		mainController.invokeNewCanvas(width, height);
+		double paneWidth = Double.parseDouble(canvasWidth.getText());
+		double paneHeight = Double.parseDouble(canvasHeight.getText());
+		mainController.setCanvasDimensions(paneWidth, paneHeight);
 	}
 
 	@FXML
@@ -62,7 +63,8 @@ public class MenuBarController {
 		File file = fileChooser.showSaveDialog(null);
 		if (file != null) {
 			String filePath = file.getPath();
-			pane = mainController.passPane();
+			pane = mainController.getPane();
+			canvas = mainController.getCanvas();
 			if (filePath.endsWith(".xml")) {
 				saveXMLFile(file);
 			} else {
@@ -90,10 +92,11 @@ public class MenuBarController {
 	}
 
 	@FXML
-	private void openFile() throws IOException {
+	private void loadFile() throws IOException {
 		FileChooser fileChooser = new FileChooser();
 		File file = fileChooser.showOpenDialog(null);
-		pane = mainController.passPane();
+		pane = mainController.getPane();
+		canvas = mainController.getCanvas();
 		if (file != null) {
 			String filePath = file.getPath();
 			if (filePath.endsWith(".xml")) {
@@ -186,7 +189,14 @@ public class MenuBarController {
 				pane.getChildren().add(ellipse);
 			}
 		}
-		mainController.adjustSheetAfterLoad(pane, paneWidth, paneHeight);
+		this.pane.setMaxWidth(paneWidth+1.0);
+		this.pane.setMinWidth(paneWidth+1.0);
+		this.pane.setPrefWidth(paneWidth+1.0);
+		this.pane.setMaxHeight(paneHeight+1.0);
+		this.pane.setMinHeight(paneHeight+1.0);
+		this.pane.setPrefHeight(paneHeight+1.0);
+		this.canvas.setWidth(paneWidth);
+		this.canvas.setHeight(paneHeight);
 	}
 
 	void instantiate(MainController mainController) {

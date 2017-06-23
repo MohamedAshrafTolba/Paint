@@ -43,7 +43,7 @@
 								</Menu>
 							</items>
 						</Menu>
-						<MenuItem mnemonicParsing="false" text="Open" onAction="#openFile"/>
+						<MenuItem mnemonicParsing="false" text="Open" onAction="#loadFile"/>
 						<MenuItem mnemonicParsing="false" text="Save" onAction="#saveFile" />
 						<MenuItem mnemonicParsing="false" text="Close" onAction="#closeApplication"/>
 					</items>
