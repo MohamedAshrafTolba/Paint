@@ -92,38 +92,38 @@ public class ToolBarController {
 
     @FXML
     private void draggingTool() {
-        canvas.toBack();
         mainController.setState(DRAG_MODE);
-        for (Node component : pane.getChildren()) {
-            if (component instanceof Line) {
+        canvas.toBack();
+        for (Node node : pane.getChildren()) {
+            if (node instanceof Line) {
                 LineSegment line = new LineSegment();
                 line.dataInitialize(operationHistory);
-                line.moveShape(component, pane);
-            } else if (component instanceof Rectangle) {
-                Rectangle quadrilateral = (Rectangle) component;
+                line.moveShape(node, pane);
+            } else if (node instanceof Rectangle) {
+                Rectangle quadrilateral = (Rectangle) node;
                 if (quadrilateral.getWidth() == quadrilateral.getHeight()) {
                     SquareShape square = new SquareShape();
                     square.dataInitialize(operationHistory);
-                    square.moveShape(component, pane);
+                    square.moveShape(node, pane);
                 } else {
                     RectangleShape rectangle = new RectangleShape();
                     rectangle.dataInitialize(operationHistory);
-                    rectangle.moveShape(component, pane);
+                    rectangle.moveShape(node, pane);
                 }
-            } else if (component instanceof Polygon) {
+            } else if (node instanceof Polygon) {
                 TriangleShape triangle = new TriangleShape();
                 triangle.dataInitialize(operationHistory);
-                triangle.moveShape(component, pane);
-            } else if (component instanceof Ellipse) {
-                Ellipse e = (Ellipse) component;
+                triangle.moveShape(node, pane);
+            } else if (node instanceof Ellipse) {
+                Ellipse e = (Ellipse) node;
                 if (e.getRadiusX() == e.getRadiusY()) {
                     CircleShape circle = new CircleShape();
                     circle.dataInitialize(operationHistory);
-                    circle.moveShape(component, pane);
+                    circle.moveShape(node, pane);
                 } else {
                     EllipseShape ellipse = new EllipseShape();
                     ellipse.dataInitialize(operationHistory);
-                    ellipse.moveShape(component, pane);
+                    ellipse.moveShape(node, pane);
                 }
             }
         }
@@ -131,36 +131,37 @@ public class ToolBarController {
 
     @FXML
     private void resizingTool() {
-        for (Node component : pane.getChildren()) {
-            if (component instanceof Line) {
+        mainController.setState(RESIZE_MODE);
+        for (Node node : pane.getChildren()) {
+            if (node instanceof Line) {
                 LineSegment line = new LineSegment();
                 line.dataInitialize(operationHistory);
-                line.resizeShape(component, pane);
-            } else if (component instanceof Polygon) {
+                line.resizeShape(node, pane);
+            } else if (node instanceof Polygon) {
                 TriangleShape triangle = new TriangleShape();
                 triangle.dataInitialize(operationHistory);
-                triangle.resizeShape(component, pane);
-            } else if (component instanceof Rectangle) {
-                Rectangle quadrilateral = (Rectangle) component;
+                triangle.resizeShape(node, pane);
+            } else if (node instanceof Rectangle) {
+                Rectangle quadrilateral = (Rectangle) node;
                 if (quadrilateral.getWidth() == quadrilateral.getHeight()) {
                     SquareShape square = new SquareShape();
                     square.dataInitialize(operationHistory);
-                    square.resizeShape(component, pane);
+                    square.resizeShape(node, pane);
                 } else {
                     RectangleShape rectangle = new RectangleShape();
                     rectangle.dataInitialize(operationHistory);
-                    rectangle.resizeShape(component, pane);
+                    rectangle.resizeShape(node, pane);
                 }
-            } else if (component instanceof Ellipse) {
-                Ellipse e = (Ellipse) component;
+            } else if (node instanceof Ellipse) {
+                Ellipse e = (Ellipse) node;
                 if (e.getRadiusX() == e.getRadiusY()) {
                     CircleShape circle = new CircleShape();
                     circle.dataInitialize(operationHistory);
-                    circle.resizeShape(component, pane);
+                    circle.resizeShape(node, pane);
                 } else {
                     EllipseShape ellipse = new EllipseShape();
                     ellipse.dataInitialize(operationHistory);
-                    ellipse.resizeShape(component, pane);
+                    ellipse.resizeShape(node, pane);
                 }
             }
         }
@@ -168,51 +169,54 @@ public class ToolBarController {
 
     @FXML
     private void undoTool() {
+        mainController.setState(UNDO_MODE);
         if (operationHistory.getPrimaryStackSize() >= MIN_SIZE) {
-            operationHistory.invokeUndoProcess(pane);
+            operationHistory.undo(pane);
         }
     }
 
     @FXML
     private void redoTool() {
+        mainController.setState(REDO_MODE);
         if (operationHistory.getSecondaryStackSize() >= MIN_SIZE) {
-            operationHistory.invokeRedoProcess(pane);
+            operationHistory.redo(pane);
         }
     }
 
     @FXML
     private void fillingTool() {
+        mainController.setState(FILL_MODE);
         canvas.toBack();
-        for (Node component : pane.getChildren()) {
-            if (component instanceof Line) {
+        for (Node node : pane.getChildren()) {
+            if (node instanceof Line) {
                 LineSegment line = new LineSegment();
                 line.dataInitialize(operationHistory);
-                line.fillShape(pane, colorPicker.getValue(), component);
-            } else if (component instanceof Rectangle) {
-                Rectangle quadrilateral = (Rectangle) component;
+                line.fillShape(pane, colorPicker.getValue(), node);
+            } else if (node instanceof Rectangle) {
+                Rectangle quadrilateral = (Rectangle) node;
                 if (quadrilateral.getWidth() == quadrilateral.getHeight()) {
                     SquareShape square = new SquareShape();
                     square.dataInitialize(operationHistory);
-                    square.fillShape(pane, colorPicker.getValue(), component);
+                    square.fillShape(pane, colorPicker.getValue(), node);
                 } else {
                     RectangleShape rectangle = new RectangleShape();
                     rectangle.dataInitialize(operationHistory);
-                    rectangle.fillShape(pane, colorPicker.getValue(), component);
+                    rectangle.fillShape(pane, colorPicker.getValue(), node);
                 }
-            } else if (component instanceof Polygon) {
+            } else if (node instanceof Polygon) {
                 TriangleShape triangle = new TriangleShape();
                 triangle.dataInitialize(operationHistory);
-                triangle.fillShape(pane, colorPicker.getValue(), component);
-            } else if (component instanceof Ellipse) {
-                Ellipse e = (Ellipse) component;
+                triangle.fillShape(pane, colorPicker.getValue(), node);
+            } else if (node instanceof Ellipse) {
+                Ellipse e = (Ellipse) node;
                 if (e.getRadiusX() == e.getRadiusY()) {
                     CircleShape circle = new CircleShape();
                     circle.dataInitialize(operationHistory);
-                    circle.fillShape(pane, colorPicker.getValue(), component);
+                    circle.fillShape(pane, colorPicker.getValue(), node);
                 } else {
                     EllipseShape ellipse = new EllipseShape();
                     ellipse.dataInitialize(operationHistory);
-                    ellipse.fillShape(pane, colorPicker.getValue(), component);
+                    ellipse.fillShape(pane, colorPicker.getValue(), node);
                 }
             }
         }
@@ -220,37 +224,38 @@ public class ToolBarController {
 
     @FXML
     private void deletingTool() {
+        mainController.setState(DELETE_MODE);
         canvas.toBack();
-        for (Node component : pane.getChildren()) {
-            if (component instanceof Line) {
+        for (Node node : pane.getChildren()) {
+            if (node instanceof Line) {
             LineSegment line = new LineSegment();
             line.dataInitialize(operationHistory);
-            line.deleteShape(pane, component);
-            } else if (component instanceof Rectangle) {
-                Rectangle quadrilateral = (Rectangle) component;
+            line.deleteShape(pane, node);
+            } else if (node instanceof Rectangle) {
+                Rectangle quadrilateral = (Rectangle) node;
                 if (quadrilateral.getWidth() == quadrilateral.getHeight()) {
                     SquareShape square = new SquareShape();
                     square.dataInitialize(operationHistory);
-                    square.deleteShape(pane, component);
+                    square.deleteShape(pane, node);
                 } else {
                     RectangleShape rectangle = new RectangleShape();
                     rectangle.dataInitialize(operationHistory);
-                    rectangle.deleteShape(pane, component);
+                    rectangle.deleteShape(pane, node);
                 }
-            } else if (component instanceof Polygon) {
+            } else if (node instanceof Polygon) {
                 TriangleShape triangle = new TriangleShape();
                 triangle.dataInitialize(operationHistory);
-                triangle.deleteShape(pane, component);
-            } else if (component instanceof Ellipse) {
-                Ellipse e = (Ellipse) component;
+                triangle.deleteShape(pane, node);
+            } else if (node instanceof Ellipse) {
+                Ellipse e = (Ellipse) node;
                 if (e.getRadiusX() == e.getRadiusY()) {
                     CircleShape circle = new CircleShape();
                     circle.dataInitialize(operationHistory);
-                    circle.deleteShape(pane, component);
+                    circle.deleteShape(pane, node);
                 } else {
                     EllipseShape ellipse = new EllipseShape();
                     ellipse.dataInitialize(operationHistory);
-                    ellipse.deleteShape(pane, component);
+                    ellipse.deleteShape(pane, node);
                 }
             }
         }

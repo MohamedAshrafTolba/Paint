@@ -114,7 +114,6 @@ public class MenuBarController {
 		Data data = (Data) xStream.fromXML(fileReader);
 		List<String> paneData = data.getPaneData();
 		constructPane(paneData);
-
 	}
 
 	private void loadJSONFile(File file) throws IOException{

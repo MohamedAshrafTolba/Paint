@@ -17,7 +17,10 @@ public class enums {
         TRIANGLE_DRAW(9),
         DRAG_MODE(10),
         RESIZE_MODE(11),
-        DELETE_MODE(12);
+        DELETE_MODE(12),
+        FILL_MODE(13),
+        UNDO_MODE(14),
+        REDO_MODE(15);
         private int value;
         State(int value) {
             this.value = value;
