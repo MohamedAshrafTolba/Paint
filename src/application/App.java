@@ -10,9 +10,7 @@ import javafx.stage.Stage;
 
 
 public class App extends Application {
-   
-   ///The main method to launch the paint application
-    
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/view/designPaint.fxml"));

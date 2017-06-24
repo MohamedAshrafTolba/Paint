@@ -6,11 +6,11 @@ import javafx.scene.layout.Pane;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Data {
+public class PaneData {
 
     private List<String> paneData = new ArrayList<>();
 
-    public Data(Pane pane) {
+    public PaneData(Pane pane) {
         this.paneData.add(Double.toString(pane.getWidth()));
         this.paneData.add(Double.toString(pane.getHeight()));
         for (int i=0 ; i < pane.getChildren().size() ; i++) {

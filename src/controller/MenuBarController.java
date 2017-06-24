@@ -15,7 +15,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
-import model.Data;
+import model.PaneData;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -86,19 +86,19 @@ public class MenuBarController {
 
 	private void saveXMLFile(File file) throws IOException {
 		XStream xStream = new XStream(new StaxDriver());
-		Data data = new Data(pane);
-		xStream.alias("Pane", Data.class);
+		PaneData paneData = new PaneData(pane);
+		xStream.alias("Pane", PaneData.class);
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
-		xStream.toXML(data, fileOutputStream);
+		xStream.toXML(paneData, fileOutputStream);
 		fileOutputStream.close();
 	}
 
 	private void saveJSONFile(File file) throws IOException {
 		XStream xStream = new XStream(new JettisonMappedXmlDriver());
-		Data data = new Data(pane);
-		xStream.alias("Pane", Data.class);
+		PaneData paneData = new PaneData(pane);
+		xStream.alias("Pane", PaneData.class);
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
-		xStream.toXML(data, fileOutputStream);
+		xStream.toXML(paneData, fileOutputStream);
 		fileOutputStream.close();
 	}
 
@@ -121,8 +121,8 @@ public class MenuBarController {
 	private void loadXMLFile(File file) throws IOException {
 		FileReader fileReader = new FileReader(file);
 		XStream xStream = new XStream(new StaxDriver());
-		xStream.alias("Pane", Data.class);
-		Data data = (Data) xStream.fromXML(fileReader);
+		xStream.alias("Pane", PaneData.class);
+		PaneData data = (PaneData) xStream.fromXML(fileReader);
 		List<String> paneData = data.getPaneData();
 		constructPane(paneData);
 	}
@@ -130,8 +130,8 @@ public class MenuBarController {
 	private void loadJSONFile(File file) throws IOException{
 		FileReader fileReader = new FileReader(file);
 		XStream xStream = new XStream(new JettisonMappedXmlDriver());
-		xStream.alias("Pane", Data.class);
-		Data data = (Data) xStream.fromXML(fileReader);
+		xStream.alias("Pane", PaneData.class);
+		PaneData data = (PaneData) xStream.fromXML(fileReader);
 		List<String> paneData = data.getPaneData();
 		constructPane(paneData);
 	}
