@@ -56,7 +56,6 @@ public class OperationHistory {
 				nList.add(node);
 			}
 		}
-
 		pane.getChildren().removeAll(nList);
 		primaryStack.push(secondaryStack.peek());
 		secondaryStack.pop();

@@ -34,8 +34,10 @@ public class MainController {
 	private MenuBarController menuBarController;
 
     private static final int MIN_CHILD = 1;
-
+    static final double MAX_HEIGHT = 768;
+    static final double MAX_WIDTH = 1366;
     private static enums.State state;
+
 	private GraphicsContext graphicsContext;
 
     @FXML

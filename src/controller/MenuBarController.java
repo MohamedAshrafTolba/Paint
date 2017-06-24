@@ -44,7 +44,18 @@ public class MenuBarController {
 	private void newCanvasSize() {
 		double paneWidth = Double.parseDouble(canvasWidth.getText());
 		double paneHeight = Double.parseDouble(canvasHeight.getText());
-		mainController.setCanvasDimensions(paneWidth, paneHeight);
+		if (paneHeight > MainController.MAX_HEIGHT
+                && paneWidth <= MainController.MAX_WIDTH) {
+		    mainController.setCanvasDimensions(paneWidth, MainController.MAX_HEIGHT);
+        } else if (paneWidth > MainController.MAX_WIDTH
+                && paneHeight <= MainController.MAX_HEIGHT){
+            mainController.setCanvasDimensions(MainController.MAX_WIDTH, paneHeight);
+        } else if (paneWidth > MainController.MAX_WIDTH
+                && paneHeight > MainController.MAX_HEIGHT) {
+            mainController.setCanvasDimensions(MainController.MAX_WIDTH, MainController.MAX_HEIGHT);
+        } else {
+            mainController.setCanvasDimensions(paneWidth, paneHeight);
+        }
 	}
 
 	@FXML
