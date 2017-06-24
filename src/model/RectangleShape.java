@@ -20,6 +20,10 @@ public class RectangleShape extends PolygonShape {
 	private double stateX;
 	private double stateY;
 
+	public RectangleShape(OperationHistory operationHistory) {
+		super(operationHistory);
+	}
+
 	@Override
 	public void drawShape(Pane pane, ColorPicker colorPicker, Slider lineWidth) {
 		SimpleDoubleProperty rectangleInitialX = new SimpleDoubleProperty();

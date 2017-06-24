@@ -19,6 +19,10 @@ public class SquareShape extends RectangleShape {
     private double stateX;
     private double stateY;
 
+    public SquareShape(OperationHistory operationHistory) {
+    	super(operationHistory);
+	}
+
     @Override
     public void drawShape(Pane pane, ColorPicker colorPicker, Slider lineWidth) {
 		SimpleDoubleProperty rectangleInitialX = new SimpleDoubleProperty();

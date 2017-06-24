@@ -20,6 +20,10 @@ public class LineSegment extends Shapes {
     private double stateX;
     private double stateY;
 
+    public LineSegment(OperationHistory operationHistory) {
+        this.operationHistory = operationHistory;
+    }
+
     @Override
     public void drawShape(Pane pane, ColorPicker pickColor, Slider lineWidth) {
         SimpleDoubleProperty x = new SimpleDoubleProperty();

@@ -128,10 +128,6 @@ public abstract class Shapes {
 		pane.setOnMouseReleased(mouseHandler);
     }
 
-    public void dataInitialize(OperationHistory cloneData) {
-		operationHistory = cloneData;
-    }
-
     void configureCursor(double initialX, double initialY,
 						double initialW, double initialH,
 						double stateX, double stateY,

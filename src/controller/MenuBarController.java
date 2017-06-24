@@ -26,20 +26,37 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * This class represents the menu bar controller which is responsible for handling
+ * the operations that can be done from the menu bar as save/load, close, new sheet and so on.
+ */
 public class MenuBarController {
-
+	/**
+	 * The width of the canvas TextField FXML instance.
+	 */
 	@FXML
 	private TextField canvasWidth;
-
+	/**
+	 * The Height of the canvas TextField FXML instance.
+	 */
 	@FXML
 	private TextField canvasHeight;
-
+	/**
+	 * A pane instance.
+	 */
 	private Pane pane;
-
+	/**
+	 * A canvas instance.
+	 */
 	private Canvas canvas;
-
+	/**
+	 * The main controller singleton instance which controls the main functionality
+	 * and the flow of control between the modules.
+	 */
 	private MainController mainController;
-
+	/**
+	 * Sets the canvas to new dimensions and clear its contents as it produces a new drawing sheet.
+	 */
 	@FXML
 	private void newCanvasSize() {
 		double paneWidth = Double.parseDouble(canvasWidth.getText());
@@ -57,12 +74,17 @@ public class MenuBarController {
             mainController.setCanvasDimensions(paneWidth, paneHeight);
         }
 	}
-
+	/**
+	 * Closes the application.
+	 */
 	@FXML
 	private void closeApplication() {
 		Platform.exit();
 	}
-
+	/**
+	 * Saves the drawing to XML or JSON files according to the user choice.
+	 * @throws IOException An exception thrown if an error occurred while saving the drawing.
+	 */
 	@FXML
 	private void saveFile() throws IOException {
 		FileChooser fileChooser = new FileChooser();
@@ -83,7 +105,11 @@ public class MenuBarController {
 			}
 		}
 	}
-
+	/**
+	 * Saves the drawing to XML file.
+	 * @param file The file which contains the path of the file.
+	 * @throws IOException An exception thrown if an error occurred while serializing the data of the object.
+	 */
 	private void saveXMLFile(File file) throws IOException {
 		XStream xStream = new XStream(new StaxDriver());
 		PaneData paneData = new PaneData(pane);
@@ -92,7 +118,11 @@ public class MenuBarController {
 		xStream.toXML(paneData, fileOutputStream);
 		fileOutputStream.close();
 	}
-
+	/**
+	 * Saves the drawing to JSON file.
+	 * @param file The file which contains the path of the file.
+	 * @throws IOException An exception thrown if an error occurred while serializing the data of the object.
+	 */
 	private void saveJSONFile(File file) throws IOException {
 		XStream xStream = new XStream(new JettisonMappedXmlDriver());
 		PaneData paneData = new PaneData(pane);
@@ -101,7 +131,10 @@ public class MenuBarController {
 		xStream.toXML(paneData, fileOutputStream);
 		fileOutputStream.close();
 	}
-
+	/**
+	 * Loads the drawing from XML or JSON files according to the user choice.
+	 * @throws IOException An exception thrown if an error occurred while loading the drawing.
+	 */
 	@FXML
 	private void loadFile() throws IOException {
 		FileChooser fileChooser = new FileChooser();
@@ -118,6 +151,11 @@ public class MenuBarController {
 		}
 	}
 
+	/**
+	 * Loads the drawing from XML file.
+	 * @param file The file which contains the path of the file.
+	 * @throws IOException An exception thrown if an error occurred while de-serializing the data of the object.
+	 */
 	private void loadXMLFile(File file) throws IOException {
 		FileReader fileReader = new FileReader(file);
 		XStream xStream = new XStream(new StaxDriver());
@@ -127,6 +165,11 @@ public class MenuBarController {
 		constructPane(paneData);
 	}
 
+	/**
+	 * Loads the drawing from JSON file.
+	 * @param file The file which contains the path of the file.
+	 * @throws IOException An exception thrown if an error occurred while de-serializing the data of the object.
+	 */
 	private void loadJSONFile(File file) throws IOException{
 		FileReader fileReader = new FileReader(file);
 		XStream xStream = new XStream(new JettisonMappedXmlDriver());
@@ -135,7 +178,11 @@ public class MenuBarController {
 		List<String> paneData = data.getPaneData();
 		constructPane(paneData);
 	}
-	
+
+	/**
+	 * Constructs the pane from the de-serialized object after loading it.
+	 * @param paneData A list of strings which represents the pane data(Shapes that were drawn on the pane).
+	 */
 	private void constructPane(List<String> paneData) {
 		List<Double> data = new ArrayList<>();
 		double paneWidth = Double.parseDouble(paneData.get(0));
@@ -162,13 +209,11 @@ public class MenuBarController {
 				int endStrokeColor = startStrokeColor + 10;
 				strokeColor = node.substring(startStrokeColor, endStrokeColor);
 			}
-
 			if (node.contains("fill=")) {
 				int startFillColor = node.indexOf("fill=") + 5;
 				int endFillColor = startFillColor + 10;
 				fillColor = node.substring(startFillColor, endFillColor);
 			}
-
 			if (node.contains("Line")) {
 				Line line = new Line(data.get(0), data.get(1), data.get(2), data.get(3));
 				line.setStrokeWidth(data.get(data.size() - 1));
@@ -205,6 +250,11 @@ public class MenuBarController {
 		this.canvas.setWidth(paneWidth);
 		this.canvas.setHeight(paneHeight);
 	}
+
+	/**
+	 * Initializes some fields of this class once an instance is instantiated from this class.
+	 * @param mainController The main controller singleton instance.
+	 */
 	void initialize(MainController mainController) {
 		this.mainController = mainController;
 		this.pane = mainController.getPane();

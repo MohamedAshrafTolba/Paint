@@ -27,7 +27,11 @@ public class TriangleShape extends PolygonShape {
     private double stateX;
     private double stateY;
 
-    @Override
+	public TriangleShape(OperationHistory operationHistory) {
+		super(operationHistory);
+	}
+
+	@Override
     public void drawShape(Pane pane, ColorPicker colorPicker, Slider lineWidth) {
 		EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
 			double x[] = new double[3];

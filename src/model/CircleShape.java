@@ -20,7 +20,11 @@ public class CircleShape extends EllipseShape {
     private double stateX;
     private double stateY;
 
-    @Override
+	public CircleShape(OperationHistory operationHistory) {
+		super(operationHistory);
+	}
+
+	@Override
     public void drawShape(Pane pane, ColorPicker colorPicker, Slider lineWidth) {
 		SimpleDoubleProperty rectangleInitialX = new SimpleDoubleProperty();
 		SimpleDoubleProperty rectangleX = new SimpleDoubleProperty();
