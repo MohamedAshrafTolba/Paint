@@ -85,7 +85,8 @@ public class MainController {
 				graphicsContext.beginPath();
 				graphicsContext.moveTo(event.getX(), event.getY());
 				graphicsContext.stroke();
-			}});
+			}
+		});
 
 		canvas.setOnMouseDragged(event -> {
 			if (state == BRUSH_SKETCHING || state == ERASE_SKETCHING || state == PENCIL_SKETCHING) {
@@ -99,13 +100,15 @@ public class MainController {
 				}
 				graphicsContext.lineTo(event.getX(), event.getY());
 				graphicsContext.stroke();
-			}});
+			}
+		});
 
 		canvas.setOnMouseReleased(event -> {
 			if (state == BRUSH_SKETCHING || state == ERASE_SKETCHING || state == PENCIL_SKETCHING) {
 				graphicsContext.closePath();
 				event.consume();
-			}});
+			}
+		});
     }
 
     public Pane getPane() {
