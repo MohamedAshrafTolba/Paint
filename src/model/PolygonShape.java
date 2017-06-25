@@ -5,9 +5,12 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 
+/**
+ * This class represents the ADT of the polygon shape.
+ */
 public abstract class PolygonShape extends Shapes {
 
-    public PolygonShape(OperationHistory operationHistory) {
+    PolygonShape(OperationHistory operationHistory) {
         this.operationHistory = operationHistory;
     }
 

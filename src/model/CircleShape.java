@@ -10,6 +10,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Ellipse;
 
+/**
+ * This class represents the circle shape class.
+ */
 public class CircleShape extends EllipseShape {
 
     private Ellipse ellipse;

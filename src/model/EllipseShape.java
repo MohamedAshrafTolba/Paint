@@ -10,6 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 
+/**
+ * This class represents the ellipse shape class.
+ */
 public class EllipseShape extends Shapes {
 
     private Ellipse ellipse;

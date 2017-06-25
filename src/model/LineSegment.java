@@ -10,6 +10,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
+/**
+ * This class represents the line segment class.
+ */
 public class LineSegment extends Shapes {
     
     private Line line;

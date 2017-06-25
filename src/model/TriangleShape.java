@@ -15,6 +15,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 
+/**
+ * This class represents the triangle shape class.
+ */
 public class TriangleShape extends PolygonShape {
     
 	private Polygon polygon;

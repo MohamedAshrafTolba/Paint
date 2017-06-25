@@ -21,47 +21,57 @@ import static model.enums.State.*;
  * and distributes them among other controllers to handled.
  */
 public class MainController {
+
 	/**
 	 * The ScrollPane FXML instance.
 	 */
 	@FXML
     private ScrollPane scrollPane;
+
 	/**
 	 * The Canvas FXML instance.
 	 */
     @FXML
     private Canvas canvas;
+
 	/**
 	 * The Pane FXML instance.
 	 */
     @FXML
     private Pane pane;
+
 	/**
 	 * The ToolBarController singleton instance.
 	 */
 	@FXML
 	private ToolBarController toolBarController;
+
 	/**
 	 * The MenuBarController singleton instance.
 	 */
     @FXML
 	private MenuBarController menuBarController;
+
 	/**
 	 * Minimum number of children of the pane.
 	 */
 	private static final int MIN_CHILD = 1;
+
 	/**
 	 * Maximum height of the drawing sheet.
 	 */
     static final double MAX_HEIGHT = 768;
+
 	/**
 	 * Maximum width of the drawing sheet.
 	 */
 	static final double MAX_WIDTH = 1366;
+
 	/**
 	 * Enum represents the current state(operation).
 	 */
     private static enums.State state;
+
 	/**
 	 * GraphicsContext of the canvas.
 	 */

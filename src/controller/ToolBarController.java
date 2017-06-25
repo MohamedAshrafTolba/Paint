@@ -20,33 +20,40 @@ import static model.enums.State.*;
  * the operations that can be done from the tool bar as geometric shapes drawing, moving, resizing, deleting and so on.
  */
 public class ToolBarController {
+
     /**
      * The ColorPicker FXML instance.
      */
     @FXML
     private ColorPicker colorPicker;
+
     /**
      * The Slider FXML instance.
      */
     @FXML
     private Slider slider;
+
     /**
      * A pane instance.
      */
     private Pane pane;
+
     /**
      * A canvas instance.
      */
     private Canvas canvas;
+
     /**
      * The main controller singleton instance which controls the main functionality
      * and the flow of control between the modules.
      */
 	private MainController mainController;
+
     /**
      * Minimum number of children of the pane.
      */
 	private static final int MIN_SIZE = 1;
+
     /**
      * The operationHistory instance which is responsible for handling the undo/redo operations.
      */
@@ -211,7 +218,7 @@ public class ToolBarController {
     }
 
     /**
-     * Undo an operation.
+     * Undoes an operation.
      */
     @FXML
     private void undoTool() {
@@ -222,7 +229,7 @@ public class ToolBarController {
     }
 
     /**
-     * Redo an operation.
+     * Redoes an operation.
      */
     @FXML
     private void redoTool() {
@@ -311,6 +318,7 @@ public class ToolBarController {
     private void configureShape(Shapes shape) {
         shape.drawShape(pane, colorPicker, slider);
     }
+
     /**
      * Initializes some fields of this class once an instance is instantiated from this class.
      * @param mainController The main controller singleton instance.
@@ -349,6 +357,7 @@ public class ToolBarController {
      * Clears the stacks used for the undo/redo operations.
      */
     void clearData() {
-        operationHistory.clearStacks();
+        operationHistory.clearPrimaryStack();
+        operationHistory.clearSecondaryStack();
     }
 }

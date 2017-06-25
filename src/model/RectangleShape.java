@@ -10,6 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * This class represents the rectangle shape class.
+ */
 public class RectangleShape extends PolygonShape {
 	
 	private Rectangle rectangle;

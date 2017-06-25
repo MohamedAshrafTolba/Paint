@@ -1,10 +1,10 @@
 package model;
 
-/**
- * @author Mohamed Tolba
- */
 public class enums {
 
+    /**
+     * Enum which represents the current operation of the application.
+     */
     public enum State {
         PENCIL_SKETCHING(1),
         BRUSH_SKETCHING(2),

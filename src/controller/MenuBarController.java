@@ -31,29 +31,35 @@ import java.util.regex.Pattern;
  * the operations that can be done from the menu bar as save/load, close, new sheet and so on.
  */
 public class MenuBarController {
+
 	/**
 	 * The width of the canvas TextField FXML instance.
 	 */
 	@FXML
 	private TextField canvasWidth;
+
 	/**
 	 * The Height of the canvas TextField FXML instance.
 	 */
 	@FXML
 	private TextField canvasHeight;
+
 	/**
 	 * A pane instance.
 	 */
 	private Pane pane;
+
 	/**
 	 * A canvas instance.
 	 */
 	private Canvas canvas;
+
 	/**
 	 * The main controller singleton instance which controls the main functionality
 	 * and the flow of control between the modules.
 	 */
 	private MainController mainController;
+
 	/**
 	 * Sets the canvas to new dimensions and clear its contents as it produces a new drawing sheet.
 	 */
@@ -81,6 +87,7 @@ public class MenuBarController {
 	private void closeApplication() {
 		Platform.exit();
 	}
+
 	/**
 	 * Saves the drawing to XML or JSON files according to the user choice.
 	 * @throws IOException An exception thrown if an error occurred while saving the drawing.
@@ -105,6 +112,7 @@ public class MenuBarController {
 			}
 		}
 	}
+
 	/**
 	 * Saves the drawing to XML file.
 	 * @param file The file which contains the path of the file.
@@ -118,6 +126,7 @@ public class MenuBarController {
 		xStream.toXML(paneData, fileOutputStream);
 		fileOutputStream.close();
 	}
+
 	/**
 	 * Saves the drawing to JSON file.
 	 * @param file The file which contains the path of the file.
@@ -131,6 +140,7 @@ public class MenuBarController {
 		xStream.toXML(paneData, fileOutputStream);
 		fileOutputStream.close();
 	}
+
 	/**
 	 * Loads the drawing from XML or JSON files according to the user choice.
 	 * @throws IOException An exception thrown if an error occurred while loading the drawing.

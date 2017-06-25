@@ -13,20 +13,55 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * This class describes the ADT for any geometric shape.
+ */
 public abstract class Shapes {
 
+	/**
+	 * Horizontal - X coordinate.
+	 */
     private double xCoordinate;
-    private double yCoordinate;
 
+	/**
+	 * Vertical - Y coordinate.
+	 */
+	private double yCoordinate;
+
+	/**
+	 * The operation history instance which is responsible for undo and redo operations.
+	 */
     OperationHistory operationHistory;
 
+	/**
+	 * Draws a shape with the user choice for the stroke color and line width and then adds it to the pane.
+	 * @param pane The pane where the shape will be added.
+	 * @param pickColor The color of the stroke used to draw the shape.
+	 * @param lineWidth The width od the stroke used to draw the shape.
+	 */
     public abstract void drawShape(Pane pane, ColorPicker pickColor, Slider lineWidth);
 
+	/**
+	 * Resize a shape drawn on a pane.
+	 * @param node The shape which is required to be resized.
+	 * @param pane The pane which contains this shape.
+	 */
     public abstract void resizeShape(Node node, Pane pane);
 
+	/**
+	 * Sets the cursor on the shape depending on the current operation.
+	 * @param node The shape which is required to set its cursor.
+	 * @param stateX A double value represents the current horizontal-x coordinate of the mouse pointer(cursor).
+	 * @param stateY A double value represents the current vertical-y coordinate of the mouse pointer(cursor).
+	 */
     public abstract void setCursor(Node node, double stateX, double stateY);
 
-    public void moveShape(Node node, Pane pane) {
+	/**
+	 * Drags/Moves a shape on a pane.
+	 * @param node The shape which is required to be moved/dragged.
+	 * @param pane The pane which contains the shape.
+	 */
+	public void moveShape(Node node, Pane pane) {
 		resetMouseEvents(pane);
 		EventHandler<MouseEvent> mouseHandler = mouseEvent -> {
 			if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
@@ -48,19 +83,25 @@ public abstract class Shapes {
 		node.setOnMouseReleased(mouseHandler);
     }
 
-    public void fillShape(Pane pane, Color paintColor, Node node) {
+	/**
+	 * Fills a shape with a certain color.
+	 * @param pane The pane which contains the shape.
+	 * @param color The color which is required to fill the shape with.
+	 * @param node The shape which is required to be filled with a certain color.
+	 */
+    public void fillShape(Pane pane, Color color, Node node) {
 		resetMouseEvents(pane);
 		EventHandler<MouseEvent> mouseHandler = mouseEvent -> {
 		if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			if (node instanceof Polygon) {
 				Polygon polygon = (Polygon) node;
-				polygon.setFill(paintColor);
+				polygon.setFill(color);
 			} else if (node instanceof Rectangle) {
 				Rectangle rectangle = (Rectangle) node;
-				rectangle.setFill(paintColor);
+				rectangle.setFill(color);
 			} else if (node instanceof Ellipse) {
 				Ellipse ellipse = (Ellipse) node;
-				ellipse.setFill(paintColor);
+				ellipse.setFill(color);
 			}
 			if (!(node instanceof Line)) {
 				operationHistory.shapeDrawn(pane);
@@ -69,7 +110,12 @@ public abstract class Shapes {
 		node.setOnMousePressed(mouseHandler);
     }
 
-    public void deleteShape(Pane pane, Node node) {
+	/**
+	 * Deletes a shape from a pane.
+	 * @param pane The pane which contains the shape.
+	 * @param node The shape which is required to be deleted.
+	 */
+	public void deleteShape(Pane pane, Node node) {
 		resetMouseEvents(pane);
 		if (node instanceof Line || node instanceof Polygon || node instanceof Rectangle
 			|| node instanceof Ellipse) {
@@ -82,7 +128,11 @@ public abstract class Shapes {
 		}
     }
 
-    void setShapeStyleOnDrag(Node node) {
+	/**
+	 * Set the stroke style of the selected shape on dragging/moving.
+	 * @param node The shape whose stroke style will be altered on selection on dragging/moving.
+	 */
+	void setShapeStyleOnDrag(Node node) {
 		if (node instanceof Rectangle) {
 			Rectangle rectangle = (Rectangle) node;
 			rectangle.setStyle("-fx-stroke-dash-offset: 15;-fx-stroke-dash-array: 12 2 4 2; -fx-stroke: darkblue; ");
@@ -98,6 +148,10 @@ public abstract class Shapes {
 		}
     }
 
+	/**
+	 * Set the stroke style of the selected shape on release.
+	 * @param node The shape whose stroke style will be altered on selection on release.
+	 */
     void setShapeStyleOnRelease(Node node) {
 		if (node instanceof Rectangle) {
 			Rectangle rectangle = (Rectangle) node;
@@ -114,7 +168,11 @@ public abstract class Shapes {
 		}
     }
 
-    void resetMouseEvents(Pane pane) {
+	/**
+	 * Resets the mouse events on a pane.
+	 * @param pane The pane whose mouse events are required to be reset.
+	 */
+	void resetMouseEvents(Pane pane) {
 		EventHandler<MouseEvent> mouseHandler = mouseEvent -> {
         if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
             // Do Nothing...
@@ -128,6 +186,16 @@ public abstract class Shapes {
 		pane.setOnMouseReleased(mouseHandler);
     }
 
+	/**
+	 * Configures the cursor on the shape corresponding to the current operation.
+	 * @param initialX  A double value represents the horizontal-x coordinate of the shape.
+	 * @param initialY  A double value represents the vertical-y coordinate of the shape.
+	 * @param initialW  A double value represents the width of the shape.
+	 * @param initialH  A double value represents the height of the shape.
+	 * @param stateX  A double value represents the horizontal-x coordinate of the mouse pointer(cursor).
+	 * @param stateY  A double value represents the vertical-y coordinate of the mouse pointer(cursor).
+	 * @param node  The shape whose cursor wanted to be altered depending on the current operation.
+	 */
     void configureCursor(double initialX, double initialY,
 						double initialW, double initialH,
 						double stateX, double stateY,

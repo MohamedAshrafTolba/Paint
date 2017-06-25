@@ -14,9 +14,9 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     /**
-     * Initializes the application's stage to a certain dimensions, shows it and loads the fxml files.
+     * Initializes the application's stage to a certain dimensions, shows it and loads the FXML files.
      * @param primaryStage The stage where the FXML files' components will appear,
-     * In other words the stage which will contains the application components itself.
+     * In other words the stage which will contain the application components itself.
      * @throws Exception An exception that will be thrown if any error occurs while loading the FXML files
      * or while showing the application window.
      */

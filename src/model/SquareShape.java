@@ -10,7 +10,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * This class represents the square shape class.
+ */
 public class SquareShape extends RectangleShape {
+
     private Rectangle finalRectangle;
     private double initialX;
     private double initialY;
