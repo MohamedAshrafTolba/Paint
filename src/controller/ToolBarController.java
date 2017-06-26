@@ -47,12 +47,12 @@ public class ToolBarController {
      * The main controller singleton instance which controls the main functionality
      * and the flow of control between the modules.
      */
-	private MainController mainController;
+    private MainController mainController;
 
     /**
      * Minimum number of children of the pane.
      */
-	private static final int MIN_SIZE = 1;
+    private static final int MIN_SIZE = 1;
 
     /**
      * The operationHistory instance which is responsible for handling the undo/redo operations.
@@ -64,8 +64,8 @@ public class ToolBarController {
      */
     @FXML
     private void pencilSketching() {
-		mainController.setState(PENCIL_SKETCHING);
-		mainController.freeSketching();
+        mainController.setState(PENCIL_SKETCHING);
+        mainController.freeSketching();
     }
 
     /**
@@ -73,8 +73,8 @@ public class ToolBarController {
      */
     @FXML
     private void brushSketching() {
-		mainController.setState(BRUSH_SKETCHING);
-		mainController.freeSketching();
+        mainController.setState(BRUSH_SKETCHING);
+        mainController.freeSketching();
     }
 
     /**
@@ -82,8 +82,8 @@ public class ToolBarController {
      */
     @FXML
     private void eraserTool() {
-		mainController.setState(ERASE_SKETCHING);
-		mainController.freeSketching();
+        mainController.setState(ERASE_SKETCHING);
+        mainController.freeSketching();
     }
 
     /**
@@ -91,9 +91,9 @@ public class ToolBarController {
      */
     @FXML
     private void drawRectangle() {
-		RectangleShape rectangle = new RectangleShape(this.operationHistory);
+        RectangleShape rectangle = new RectangleShape(this.operationHistory);
         mainController.setState(RECTANGLE_DRAW);
-		configureShape(rectangle);
+        configureShape(rectangle);
     }
 
     /**
@@ -101,9 +101,9 @@ public class ToolBarController {
      */
     @FXML
     private void drawSquare() {
-		SquareShape square = new SquareShape(this.operationHistory);
+        SquareShape square = new SquareShape(this.operationHistory);
         mainController.setState(SQUARE_DRAW);
-		configureShape(square);
+        configureShape(square);
     }
 
     /**
@@ -111,9 +111,9 @@ public class ToolBarController {
      */
     @FXML
     private void drawEllipse() {
-		EllipseShape ellipse = new EllipseShape(this.operationHistory);
+        EllipseShape ellipse = new EllipseShape(this.operationHistory);
         mainController.setState(ELLIPSE_DRAW);
-		configureShape(ellipse);
+        configureShape(ellipse);
     }
 
     /**
@@ -121,9 +121,9 @@ public class ToolBarController {
      */
     @FXML
     private void drawCircle() {
-		CircleShape circle = new CircleShape(this.operationHistory);
+        CircleShape circle = new CircleShape(this.operationHistory);
         mainController.setState(CIRCLE_DRAW);
-		configureShape(circle);
+        configureShape(circle);
     }
 
     /**
@@ -131,9 +131,9 @@ public class ToolBarController {
      */
     @FXML
     private void drawLine() {
-		LineSegment line = new LineSegment(this.operationHistory);
+        LineSegment line = new LineSegment(this.operationHistory);
         mainController.setState(LINE_DRAW);
-		configureShape(line);
+        configureShape(line);
     }
 
     /**
@@ -141,9 +141,9 @@ public class ToolBarController {
      */
     @FXML
     private void drawTriangle() {
-		TriangleShape triangle = new TriangleShape(this.operationHistory);
+        TriangleShape triangle = new TriangleShape(this.operationHistory);
         mainController.setState(TRIANGLE_DRAW);
-		configureShape(triangle);
+        configureShape(triangle);
     }
 
     /**
